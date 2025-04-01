@@ -1,3 +1,4 @@
+require('dotenv').config()
 // se guardan las funciones de la libreria http
 const http = require("http");
 
@@ -9,4 +10,6 @@ function requestController() {
 //configurar nuestro servidor
 const server = http.createServer(requestController);
 
-server.listen(4000)
+server.listen(process.env.PORT, function () {
+    console.log("Servidor escuchando en el puerto " + process.env.PORT);
+});
